@@ -1,5 +1,4 @@
-const osc = require("osc"),
-      WebSocket = require("ws");
+const WebSocket = require("ws");
 
 // Create an Express server app
 // and serve up a directory of static files.
@@ -13,21 +12,14 @@ var wss = new WebSocket.Server({
     server: server
 });
 
-// Listen for Web Socket connections.
-wss.on("connection", function (socket) {
-    var socketPort = new osc.WebSocketPort({
-        socket: socket,
-        metadata: true
+wss.on('connection', function connection(ws) {
+  ws.on('message', function incoming(data) {
+    wss.clients.forEach(function each(client) {
+      if (client.readyState === WebSocket.OPEN) {
+        client.send(data);
+      }
     });
-
-    socketPort.on("message", function (oscMsg) {
-        console.log("An OSC Message was received!", oscMsg);
-	socketPort.send({
-	    address: oscMsg.address,
-	    args: oscMsg.args
-	});
-
-    });
+  });
 });
 
 console.log('server started');
