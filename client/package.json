@@ -1,0 +1,14 @@
+{
+  "name": "remote-server-client",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Serkan Sevilgen",
+  "license": "ISC",
+  "dependencies": {
+    "osc": "^2.4.1"
+  }
+}
