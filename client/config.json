@@ -1,8 +1,8 @@
 {
-    "wsRemoteAddress": "3.124.166.4",
-    "wsRemotePort": 8081,
-    "udpServerAddress": "0.0.0.0",
-    "udpServerPort": 57121,
+    "serverAddress": "3.124.166.4",
+    "serverPort": 8081,
+    "clientAddress": "0.0.0.0",
+    "clientPort": 57121,
     "appAddress": "127.0.0.1",
     "appPort": 57120
 }
